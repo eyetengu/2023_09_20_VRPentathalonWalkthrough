@@ -9,7 +9,7 @@ public class Enemy_BasicBehavior : MonoBehaviour
 {
     //Components
     [SerializeField] private PlayerHealth _playerHealth;
-    [SerializeField] private Transform _target;
+    [SerializeField] private Transform _target, _host;
     private CapsuleCollider _collider;
     private Animator _animator;
     [SerializeField] private Image _playerIndicator;
@@ -23,7 +23,7 @@ public class Enemy_BasicBehavior : MonoBehaviour
     [SerializeField] private AudioClip[] _randomActionClip;
 
     [SerializeField] private float _speed;
-    [SerializeField] private float _distance;
+    [SerializeField] private float _distanceToPlayer, _distanceToHost;
     private bool _canStrike;
 
     //Zombie Stats
@@ -79,16 +79,16 @@ public class Enemy_BasicBehavior : MonoBehaviour
             }
             else
             {
-                //Distance Checks
-                _distance = Vector3.Distance(transform.position, _target.position);
+                //PLAYER Distance Checks
+                _distanceToPlayer = Vector3.Distance(transform.position, _target.position);
 
-                if (_distance > 8)
+                if (_distanceToPlayer > 8)
                     _currentState = AIState.Wander;
 
-                if (_distance < 8 && _distance > 2)                
+                if (_distanceToPlayer < 8 && _distanceToPlayer > 2)                
                     _currentState = AIState.Chase;
 
-                if (_isTurboCrawler && _distance < 2)
+                if (_isTurboCrawler && _distanceToPlayer < 2)
                 {
                     if (_canStrike)
                     {
@@ -99,8 +99,41 @@ public class Enemy_BasicBehavior : MonoBehaviour
                     }
                 }
 
-                if(_distance < 1)               
-                    _currentState = AIState.Attack;                
+                if(_distanceToPlayer < 1)               
+                    _currentState = AIState.Attack;
+
+
+                //HOST Distance Checks
+                var host = GameObject.FindGameObjectWithTag("NPC");
+                
+                _distanceToHost = Vector3.Distance(transform.position, host.transform.position);
+                if (_distanceToHost < 8)
+                {
+                    MoveTowardsHost();
+                    RotateTowardsHost();
+                }
+                else if (_distanceToHost < 2)
+                {
+                    RotateTowardsHost();
+                    if (_canStrike)
+                    {
+                        _canStrike = false;
+                        PlayRandomAttackAudio();
+
+                        if (_isTurboCrawler)
+                            SetJumpAnim();
+                        else
+                            SetAttackAnim();
+
+                        
+
+                        StartCoroutine(AttackCooldown());
+                    }
+                }
+                else
+                    _currentState = AIState.Wander;
+
+
 
             }
             
@@ -269,6 +302,24 @@ public class Enemy_BasicBehavior : MonoBehaviour
 
         transform.rotation = Quaternion.LookRotation(newDirection);
     }
+    
+    private void MoveTowardsHost()
+    {
+        var step = _speed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, _host.position, step);
+    }
+    private void RotateTowardsHost()
+    {
+        Vector3 targetDirection = _target.position - _host.position;
+        float singleStep = _speed * Time.deltaTime;
+
+        Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, singleStep, 0.0f);
+        transform.rotation = Quaternion.LookRotation(newDirection);
+    }
+    
+    
+    
+    
     private void RandomAction()
     {
         var randomAction = Random.Range(0, _randomActionClip.Length-1);

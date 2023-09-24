@@ -82,6 +82,14 @@ public class NPC_BasicBehavior : MonoBehaviour
     }
     
 
+
+    private void FollowPlayer()
+    {
+
+    }
+
+
+
     //NPC STATUS
     private void InfectCharacter()
     {
