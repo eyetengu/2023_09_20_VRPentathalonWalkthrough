@@ -8,6 +8,11 @@ TagManager:
   - Explodable
   - Ground
   - Target
+  - Weapon
+  - Food
+  - Drink
+  - Zombie
+  - NPC
   layers:
   - Default
   - TransparentFX
