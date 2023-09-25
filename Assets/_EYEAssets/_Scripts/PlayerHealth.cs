@@ -26,7 +26,9 @@ public class PlayerHealth : MonoBehaviour
 
     void Update()
     {
-        
+        var yPos = transform.position.y;
+        if (yPos < -5)
+            transform.position = new Vector3(0, 10, 0);
     }
 
     public void AddHealth(int health)

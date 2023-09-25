@@ -6986,6 +6986,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerHealth: {fileID: 0}
   _target: {fileID: 0}
+  _host: {fileID: 0}
   _playerIndicator: {fileID: 0}
   _zombieHealthBar: {fileID: 5810572564108026322, guid: dec29039a4b8d404f9fa90dbaec4aedb, type: 3}
   _audioSource: {fileID: 5810572565509975274, guid: dec29039a4b8d404f9fa90dbaec4aedb, type: 3}
@@ -7021,8 +7022,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3fa01d0b2930a4c8a88dbb6b5580548c, type: 3}
   - {fileID: 8300000, guid: 9d65e128ee4a54447ac3ad105eee6f1f, type: 3}
   - {fileID: 8300000, guid: 2235070f7c287447fbe7cc0462a08d1c, type: 3}
+  _uiManager: {fileID: 0}
   _speed: 2
-  _distance: 0
+  _distanceToPlayer: 0
+  _distanceToHost: 0
+  _aDisturbanceInTheForce: {x: 0, y: 0, z: 0}
+  _isTurboCrawler: 0
+  _zombieAlterEgo: {fileID: 1297223418881080, guid: 20d863b9f1bb8464f96d58e9319f7088, type: 3}
 --- !u!195 &9105553421730205564
 NavMeshAgent:
   m_ObjectHideFlags: 0

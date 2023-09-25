@@ -4039,7 +4039,7 @@ Animator:
   m_GameObject: {fileID: 5811304191107274857}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: b20a3c10714a6ac439af479e3273de65, type: 3}
-  m_Controller: {fileID: 9100000, guid: b0708b5dd6ca9a349b1cbfc6cae776ee, type: 2}
+  m_Controller: {fileID: 9100000, guid: 50b442d889bb56c4cb6b9539dc1ba541, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -4173,6 +4173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerHealth: {fileID: 0}
   _target: {fileID: 0}
+  _host: {fileID: 0}
   _playerIndicator: {fileID: 0}
   _zombieHealthBar: {fileID: 5810572564108026322}
   _audioSource: {fileID: 5810572565509975274}
@@ -4208,9 +4209,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3fa01d0b2930a4c8a88dbb6b5580548c, type: 3}
   - {fileID: 8300000, guid: 9d65e128ee4a54447ac3ad105eee6f1f, type: 3}
   - {fileID: 8300000, guid: 2235070f7c287447fbe7cc0462a08d1c, type: 3}
+  _uiManager: {fileID: 0}
   _speed: 2
-  _distance: 0
+  _distanceToPlayer: 0
+  _distanceToHost: 0
   _aDisturbanceInTheForce: {x: 0, y: 0, z: 0}
+  _isTurboCrawler: 1
+  _zombieAlterEgo: {fileID: 6083779479764157073, guid: f212b2b0f06f74a44a25606d1a7c97fd, type: 3}
 --- !u!195 &7482215521447494117
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5597,7 +5602,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ee26ded8aeae32044836748251f93891, type: 2}
+  - {fileID: 2100000, guid: e96dedf72ffffd847a520e4001ff3e3c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

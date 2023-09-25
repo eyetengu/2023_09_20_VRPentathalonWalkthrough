@@ -13,6 +13,7 @@ TagManager:
   - Drink
   - Zombie
   - NPC
+  - Antidote
   layers:
   - Default
   - TransparentFX

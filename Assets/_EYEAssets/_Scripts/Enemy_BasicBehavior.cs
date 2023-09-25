@@ -7,6 +7,9 @@ using UnityEngine.UI;
 
 public class Enemy_BasicBehavior : MonoBehaviour
 {
+    [SerializeField] private enum AIState { Idle, Chase, Attack, Wander, Die, Investigate, Scream }
+    private AIState _currentState;
+
     //Components
     [SerializeField] private PlayerHealth _playerHealth;
     [SerializeField] private Transform _target, _host;
@@ -21,15 +24,13 @@ public class Enemy_BasicBehavior : MonoBehaviour
     [SerializeField] private AudioClip[] _zombieAttackAudio;
     [SerializeField] private AudioClip[] _zombieBreathingClip;
     [SerializeField] private AudioClip[] _randomActionClip;
+    [SerializeField] private StealthZombie_UI _uiManager;
 
     [SerializeField] private float _speed;
     [SerializeField] private float _distanceToPlayer, _distanceToHost;
     private bool _canStrike;
 
-    //Zombie Stats
-    [SerializeField] private enum AIState { Idle, Chase, Attack, Wander, Die, Investigate, Scream }
-    private AIState _currentState;
-    
+    //Zombie Stats    
     private int _maxZombieHealth = 30;
     private int _zombieHealth;
     private bool _isThisEnemyDead;
@@ -44,9 +45,13 @@ public class Enemy_BasicBehavior : MonoBehaviour
     private bool _isADisturbanceInTheForce;
     [SerializeField] private bool _isTurboCrawler;
 
+    [SerializeField] private GameObject _zombieAlterEgo;
+
     //INITIALIZATION
     private void Start()
     {
+        _uiManager = GameObject.FindObjectOfType<StealthZombie_UI>();
+
         _playerHealth = GameObject.Find("XR Origin").GetComponent<PlayerHealth>() ;
         
         _animator  = GetComponent<Animator>();
@@ -90,19 +95,21 @@ public class Enemy_BasicBehavior : MonoBehaviour
 
                 if (_isTurboCrawler && _distanceToPlayer < 2)
                 {
+                    _currentState = AIState.Attack;
                     if (_canStrike)
                     {
-                        _canStrike = false;
-                        SetJumpAnim();
-                        _currentState = AIState.Attack;
-                        StartCoroutine(AttackCooldown());
+                        //_canStrike = false;
+                        //SetJumpAnim();
+                        //StartCoroutine(AttackCooldown());
                     }
                 }
+
 
                 if(_distanceToPlayer < 1)               
                     _currentState = AIState.Attack;
 
 
+                /*
                 //HOST Distance Checks
                 var host = GameObject.FindGameObjectWithTag("NPC");
                 
@@ -133,7 +140,7 @@ public class Enemy_BasicBehavior : MonoBehaviour
                 else
                     _currentState = AIState.Wander;
 
-
+                */
 
             }
             
@@ -178,7 +185,7 @@ public class Enemy_BasicBehavior : MonoBehaviour
                             SetAttackAnim();                        
 
                         _playerHealth.TakeDamage(1);
-
+                        _uiManager.SendPlayerAMessage("YUM! YUM! YUM!");
                         StartCoroutine(AttackCooldown());
                     }                
                     //_playerIndicator.material.color =Color.red;
@@ -301,25 +308,7 @@ public class Enemy_BasicBehavior : MonoBehaviour
         Debug.DrawRay(transform.position, newDirection, Color.red);
 
         transform.rotation = Quaternion.LookRotation(newDirection);
-    }
-    
-    private void MoveTowardsHost()
-    {
-        var step = _speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, _host.position, step);
-    }
-    private void RotateTowardsHost()
-    {
-        Vector3 targetDirection = _target.position - _host.position;
-        float singleStep = _speed * Time.deltaTime;
-
-        Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, singleStep, 0.0f);
-        transform.rotation = Quaternion.LookRotation(newDirection);
-    }
-    
-    
-    
-    
+    }    
     private void RandomAction()
     {
         var randomAction = Random.Range(0, _randomActionClip.Length-1);
@@ -327,6 +316,8 @@ public class Enemy_BasicBehavior : MonoBehaviour
         SetScreamAnim();
     }
 
+
+    //Disturbances
     private void WalkToDisturbance()
     {
         SetWalkAnim();
@@ -354,7 +345,6 @@ public class Enemy_BasicBehavior : MonoBehaviour
         //MoveTowards
         //_aDisturbanceInTheForce
     }
-
     public void InvestigateDisturbance (Vector3 noiseLocation)
     {
         Debug.Log("Investigation Begins Here");
@@ -364,6 +354,7 @@ public class Enemy_BasicBehavior : MonoBehaviour
         _currentState = AIState.Investigate;
         StartCoroutine(EndInvestigationTimer());
     }
+
 
     //HEALTH
     private void TakeDamage(int damageTaken)
@@ -385,7 +376,13 @@ public class Enemy_BasicBehavior : MonoBehaviour
     private void DieEnemyDie()
     {
         _audioSource.PlayOneShot(_zombieAudio[4]);
-        Destroy(gameObject,8);
+        Destroy(gameObject);
+    }
+    private void CureZombieism()
+    {
+        _currentState = AIState.Die;
+        _audioSource.PlayOneShot(_zombieAudio[3]);
+        StartCoroutine(TimeForCureToTakeEffect());
     }
      
 
@@ -414,6 +411,10 @@ public class Enemy_BasicBehavior : MonoBehaviour
         { 
             TakeDamage(5);
             _audioSource.PlayOneShot(_zombieAudio[3]);
+        }
+        if(other.tag == "Antidote")
+        {
+            CureZombieism();
         }
     }
 
@@ -447,5 +448,14 @@ public class Enemy_BasicBehavior : MonoBehaviour
 
         if(_currentState == AIState.Investigate)
             _currentState = AIState.Wander;
+    }
+
+    IEnumerator TimeForCureToTakeEffect()
+    {
+        yield return new WaitForSeconds(3);
+        Instantiate(_zombieAlterEgo, transform.position, transform.rotation);
+        _audioSource.PlayOneShot(_zombieAudio[4]);
+
+        Destroy(gameObject, 1);
     }
 }
