@@ -18,6 +18,8 @@ MonoBehaviour:
   - Key
   - Hat
   - Bottle
+  - Face
+  - Eyes
   - 
   - 
   - 
@@ -41,7 +43,5 @@ MonoBehaviour:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - GrabInteractable
+  - XROrigin

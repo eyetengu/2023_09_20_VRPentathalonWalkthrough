@@ -1,0 +1,248 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3823378940120475567
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6200026278107149097}
+  - component: {fileID: -2995638339561824351}
+  m_Layer: 0
+  m_Name: Tunnel_Style_01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6200026278107149097
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3823378940120475567}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4003888591552211638}
+  - {fileID: 6656556212738393174}
+  - {fileID: 3117036947600321424}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-2995638339561824351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3823378940120475567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0560e0a7fa208d240973755bda2c9621, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _roadSpeed: 7
+  _speedMultiplier: 1
+  _instantiationPoint_Road: {x: 0, y: 0, z: 135}
+  _instantiationPoint_Tree: {x: 0, y: 0, z: 135}
+  _instantiationPoint_Mountain: {x: 0, y: 0, z: 135}
+  _instantiationPoint_Building: {x: 0, y: 0, z: 135}
+  _isRoad: 1
+  _isMountain: 0
+  _isTree: 0
+  _isBuilding: 0
+--- !u!1001 &3120520968360552338
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6200026278107149097}
+    m_Modifications:
+    - target: {fileID: 1291977175462244, guid: 62a54f84a2999e04a877bbc1ee7f35d1, type: 3}
+      propertyPath: m_Name
+      value: SM_Env_Motorway_Tunnel_Edge_02 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400105213250562, guid: 62a54f84a2999e04a877bbc1ee7f35d1, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400105213250562, guid: 62a54f84a2999e04a877bbc1ee7f35d1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400105213250562, guid: 62a54f84a2999e04a877bbc1ee7f35d1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400105213250562, guid: 62a54f84a2999e04a877bbc1ee7f35d1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400105213250562, guid: 62a54f84a2999e04a877bbc1ee7f35d1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400105213250562, guid: 62a54f84a2999e04a877bbc1ee7f35d1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400105213250562, guid: 62a54f84a2999e04a877bbc1ee7f35d1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400105213250562, guid: 62a54f84a2999e04a877bbc1ee7f35d1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400105213250562, guid: 62a54f84a2999e04a877bbc1ee7f35d1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400105213250562, guid: 62a54f84a2999e04a877bbc1ee7f35d1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400105213250562, guid: 62a54f84a2999e04a877bbc1ee7f35d1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400105213250562, guid: 62a54f84a2999e04a877bbc1ee7f35d1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 62a54f84a2999e04a877bbc1ee7f35d1, type: 3}
+--- !u!4 &3117036947600321424 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4400105213250562, guid: 62a54f84a2999e04a877bbc1ee7f35d1, type: 3}
+  m_PrefabInstance: {fileID: 3120520968360552338}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4007933921722410676
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6200026278107149097}
+    m_Modifications:
+    - target: {fileID: 1291977175462244, guid: 62a54f84a2999e04a877bbc1ee7f35d1, type: 3}
+      propertyPath: m_Name
+      value: SM_Env_Motorway_Tunnel_Edge_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400105213250562, guid: 62a54f84a2999e04a877bbc1ee7f35d1, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400105213250562, guid: 62a54f84a2999e04a877bbc1ee7f35d1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400105213250562, guid: 62a54f84a2999e04a877bbc1ee7f35d1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400105213250562, guid: 62a54f84a2999e04a877bbc1ee7f35d1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400105213250562, guid: 62a54f84a2999e04a877bbc1ee7f35d1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400105213250562, guid: 62a54f84a2999e04a877bbc1ee7f35d1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400105213250562, guid: 62a54f84a2999e04a877bbc1ee7f35d1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400105213250562, guid: 62a54f84a2999e04a877bbc1ee7f35d1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400105213250562, guid: 62a54f84a2999e04a877bbc1ee7f35d1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400105213250562, guid: 62a54f84a2999e04a877bbc1ee7f35d1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400105213250562, guid: 62a54f84a2999e04a877bbc1ee7f35d1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 62a54f84a2999e04a877bbc1ee7f35d1, type: 3}
+--- !u!4 &4003888591552211638 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4400105213250562, guid: 62a54f84a2999e04a877bbc1ee7f35d1, type: 3}
+  m_PrefabInstance: {fileID: 4007933921722410676}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6660261553453649184
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6200026278107149097}
+    m_Modifications:
+    - target: {fileID: 1021910470503728, guid: 332f273da5105c1418f50a00b6cc3559, type: 3}
+      propertyPath: m_Name
+      value: SM_Env_Motorway_Tunnel_Middle_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175961863670134, guid: 332f273da5105c1418f50a00b6cc3559, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175961863670134, guid: 332f273da5105c1418f50a00b6cc3559, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175961863670134, guid: 332f273da5105c1418f50a00b6cc3559, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175961863670134, guid: 332f273da5105c1418f50a00b6cc3559, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175961863670134, guid: 332f273da5105c1418f50a00b6cc3559, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175961863670134, guid: 332f273da5105c1418f50a00b6cc3559, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175961863670134, guid: 332f273da5105c1418f50a00b6cc3559, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175961863670134, guid: 332f273da5105c1418f50a00b6cc3559, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175961863670134, guid: 332f273da5105c1418f50a00b6cc3559, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175961863670134, guid: 332f273da5105c1418f50a00b6cc3559, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175961863670134, guid: 332f273da5105c1418f50a00b6cc3559, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 332f273da5105c1418f50a00b6cc3559, type: 3}
+--- !u!4 &6656556212738393174 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4175961863670134, guid: 332f273da5105c1418f50a00b6cc3559, type: 3}
+  m_PrefabInstance: {fileID: 6660261553453649184}
+  m_PrefabAsset: {fileID: 0}

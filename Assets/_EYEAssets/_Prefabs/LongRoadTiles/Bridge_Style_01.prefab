@@ -1,0 +1,248 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1344991048805695104
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4285630655677083764}
+  - component: {fileID: 3706177996918629435}
+  m_Layer: 0
+  m_Name: Bridge_Style_01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4285630655677083764
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344991048805695104}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 5645298388656405739}
+  - {fileID: 5307242268248284678}
+  - {fileID: 4166500437130649510}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3706177996918629435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344991048805695104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0560e0a7fa208d240973755bda2c9621, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _roadSpeed: 7
+  _speedMultiplier: 1
+  _instantiationPoint_Road: {x: 0, y: 0, z: 135}
+  _instantiationPoint_Tree: {x: 0, y: 0, z: 135}
+  _instantiationPoint_Mountain: {x: 0, y: 0, z: 135}
+  _instantiationPoint_Building: {x: 0, y: 0, z: 135}
+  _isRoad: 1
+  _isMountain: 0
+  _isTree: 0
+  _isBuilding: 0
+--- !u!1001 &4162196781201171758
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4285630655677083764}
+    m_Modifications:
+    - target: {fileID: 1211846702324072, guid: 511a81cc50c8ab04984ef889ff92a996, type: 3}
+      propertyPath: m_Name
+      value: SM_Env_Motorway_Bridge_Edge_02 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914787371432584, guid: 511a81cc50c8ab04984ef889ff92a996, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914787371432584, guid: 511a81cc50c8ab04984ef889ff92a996, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914787371432584, guid: 511a81cc50c8ab04984ef889ff92a996, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914787371432584, guid: 511a81cc50c8ab04984ef889ff92a996, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914787371432584, guid: 511a81cc50c8ab04984ef889ff92a996, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914787371432584, guid: 511a81cc50c8ab04984ef889ff92a996, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914787371432584, guid: 511a81cc50c8ab04984ef889ff92a996, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914787371432584, guid: 511a81cc50c8ab04984ef889ff92a996, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914787371432584, guid: 511a81cc50c8ab04984ef889ff92a996, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914787371432584, guid: 511a81cc50c8ab04984ef889ff92a996, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914787371432584, guid: 511a81cc50c8ab04984ef889ff92a996, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914787371432584, guid: 511a81cc50c8ab04984ef889ff92a996, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 511a81cc50c8ab04984ef889ff92a996, type: 3}
+--- !u!4 &4166500437130649510 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4914787371432584, guid: 511a81cc50c8ab04984ef889ff92a996, type: 3}
+  m_PrefabInstance: {fileID: 4162196781201171758}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5308028781546877962
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4285630655677083764}
+    m_Modifications:
+    - target: {fileID: 1059297964042776, guid: 999dffbaa12cc3a4993543651d06b03a, type: 3}
+      propertyPath: m_Name
+      value: SM_Env_Motorway_Bridge_Middle_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 4209707535706636, guid: 999dffbaa12cc3a4993543651d06b03a, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4209707535706636, guid: 999dffbaa12cc3a4993543651d06b03a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4209707535706636, guid: 999dffbaa12cc3a4993543651d06b03a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4209707535706636, guid: 999dffbaa12cc3a4993543651d06b03a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4209707535706636, guid: 999dffbaa12cc3a4993543651d06b03a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4209707535706636, guid: 999dffbaa12cc3a4993543651d06b03a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4209707535706636, guid: 999dffbaa12cc3a4993543651d06b03a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4209707535706636, guid: 999dffbaa12cc3a4993543651d06b03a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4209707535706636, guid: 999dffbaa12cc3a4993543651d06b03a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4209707535706636, guid: 999dffbaa12cc3a4993543651d06b03a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4209707535706636, guid: 999dffbaa12cc3a4993543651d06b03a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 999dffbaa12cc3a4993543651d06b03a, type: 3}
+--- !u!4 &5307242268248284678 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4209707535706636, guid: 999dffbaa12cc3a4993543651d06b03a, type: 3}
+  m_PrefabInstance: {fileID: 5308028781546877962}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5641133468518221411
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4285630655677083764}
+    m_Modifications:
+    - target: {fileID: 1211846702324072, guid: 511a81cc50c8ab04984ef889ff92a996, type: 3}
+      propertyPath: m_Name
+      value: SM_Env_Motorway_Bridge_Edge_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914787371432584, guid: 511a81cc50c8ab04984ef889ff92a996, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914787371432584, guid: 511a81cc50c8ab04984ef889ff92a996, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914787371432584, guid: 511a81cc50c8ab04984ef889ff92a996, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914787371432584, guid: 511a81cc50c8ab04984ef889ff92a996, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914787371432584, guid: 511a81cc50c8ab04984ef889ff92a996, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914787371432584, guid: 511a81cc50c8ab04984ef889ff92a996, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914787371432584, guid: 511a81cc50c8ab04984ef889ff92a996, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914787371432584, guid: 511a81cc50c8ab04984ef889ff92a996, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914787371432584, guid: 511a81cc50c8ab04984ef889ff92a996, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914787371432584, guid: 511a81cc50c8ab04984ef889ff92a996, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914787371432584, guid: 511a81cc50c8ab04984ef889ff92a996, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 511a81cc50c8ab04984ef889ff92a996, type: 3}
+--- !u!4 &5645298388656405739 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4914787371432584, guid: 511a81cc50c8ab04984ef889ff92a996, type: 3}
+  m_PrefabInstance: {fileID: 5641133468518221411}
+  m_PrefabAsset: {fileID: 0}
