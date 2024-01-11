@@ -2466,10 +2466,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3961294048695199587}
   - component: {fileID: 4009444933450577515}
-  - component: {fileID: 3374350986368352529}
   - component: {fileID: 717389526}
   - component: {fileID: 717389527}
   - component: {fileID: 717389528}
+  - component: {fileID: 8472163064260436052}
+  - component: {fileID: 7661636758523064108}
   m_Layer: 0
   m_Name: Biker_Male
   m_TagString: NPC
@@ -2542,24 +2543,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &3374350986368352529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3959348012971037505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 279f21d9070b4eb49b71a6720ddc6454, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _target: {fileID: 0}
-  _animator: {fileID: 0}
-  _speed: 0
-  _npcClips:
-  - {fileID: 8300000, guid: 3ca121c001790493aac9f6aec90cfc06, type: 3}
-  _zombiePrefab: {fileID: 3253081891739665524, guid: 711dbfca3b856284fb71f07b6498125a, type: 3}
 --- !u!54 &717389526
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2686,6 +2669,38 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8472163064260436052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3959348012971037505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eda3919ea9acd43b5c960e811e8b45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyZombieTransform: {fileID: 0}
+  _playerTarget: {fileID: 0}
+  _waypoints: []
+  _distance: 0
+  _speed: 0
+  _animator: {fileID: 0}
+  _npcClips: []
+  _zombiePrefab: {fileID: 0}
+--- !u!114 &7661636758523064108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3959348012971037505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 612ca67c8aa4cea40ac916048142752a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3959362672996299723
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ using UnityEngine;
 public class BeerBottleBehavior : MonoBehaviour
 {
     private AudioSource _audioSource;
-    [SerializeField] AudioClip[] _bottleAudio;
+    [SerializeField] AudioClip _bottleAudio;
     private Vector3 _noiseLocation;
 
 
@@ -20,7 +20,7 @@ public class BeerBottleBehavior : MonoBehaviour
         {
             _noiseLocation = transform.position;
 
-            _audioSource.PlayOneShot(_bottleAudio[0]);
+            _audioSource.PlayOneShot(_bottleAudio);
 
             var _totalZombies = GameObject.FindGameObjectsWithTag("Zombie");
 
@@ -29,16 +29,13 @@ public class BeerBottleBehavior : MonoBehaviour
                 if(Vector3.Distance(transform.position, zombie.transform.position) < 5)
                 {
                     var zombieBehavior = zombie.transform.GetComponent<Enemy_BasicBehavior>();
+
                     if (zombieBehavior != null)
                         zombieBehavior.InvestigateDisturbance(_noiseLocation);
+
                     else Debug.Log("Zombie Behavior is NULL");
                 }
             }
-        }
-        else
-        {
-        }
+        }       
     }
-
-
 }

@@ -4,37 +4,48 @@ using UnityEngine;
 
 public class SliderDoor_Behaviors : MonoBehaviour
 {
-    [SerializeField] private Transform[] _sliderDoors;
+    //This slider door script is meant to mimic the real-world operations of sliding doors on supermarkets and other retail establishments
+    //When something enters the sensor zone(trigger volume) an audio will chime, the doors will slide open, after a delay the doors will slide closed.
 
+    [SerializeField] private Transform[] _slidingDoors;
+    [SerializeField] private float _delayClose = 3;
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _audioClip;
+    private bool _areDoorsOpen;
 
-
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-        OpenSliderDoors();
-    }
-
-    void OpenSliderDoors()
-    {
-        _sliderDoors[0].Translate(new Vector3(1, 0, 0));
-    }
-
+    
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        _audioSource.PlayOneShot(_audioClip);
+        if(_areDoorsOpen == false)
         {
-            OpenSliderDoors();
-            StartCoroutine(CloseSliderDoors());
+            _areDoorsOpen = true;
+            SlideDoorsOpen();
+            StartCoroutine(CloseDoorTimer());
         }
     }
 
-    IEnumerator CloseSliderDoors()
+    void SlideDoorsOpen()
     {
-        yield return new WaitForSeconds(1);
+        //move _slidingDoors[0] to the left
+        _slidingDoors[0].Translate(new Vector3(1.2f, 0, 0));
+        //move _slidingDoors[1] to the right
+        _slidingDoors[1].Translate(new Vector3(-1.2f, 0, 0));
 
+    }
+
+    IEnumerator CloseDoorTimer()
+    {
+        yield return new WaitForSeconds(_delayClose);
+        SlideDoorsClosed();
+    }
+
+    void SlideDoorsClosed()
+    {
+        //move _slidingDoors[0] to the right
+        _slidingDoors[0].Translate(new Vector3(-1.2f, 0, 0));
+        //move _slidingDoors[1] to the left
+        _slidingDoors[1].Translate(new Vector3(1.2f, 0, 0));
+        _areDoorsOpen = false;
     }
 }

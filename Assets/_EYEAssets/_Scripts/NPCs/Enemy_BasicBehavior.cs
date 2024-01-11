@@ -7,6 +7,11 @@ using UnityEngine.UI;
 
 public class Enemy_BasicBehavior : MonoBehaviour
 {
+    //This script is entirely too long.
+    //We will need to strip out all of the audio and place it in its own script
+    //this script will then access that script and trigger its functions
+
+
     [SerializeField] private enum AIState { Idle, Chase, Attack, Wander, Die, Investigate, Scream }
     private AIState _currentState;
 
@@ -33,7 +38,7 @@ public class Enemy_BasicBehavior : MonoBehaviour
     //Zombie Stats    
     private int _maxZombieHealth = 30;
     private int _zombieHealth;
-    private bool _isThisEnemyDead;
+    private bool _isThisZombieDead;
 
     //Zombie Movement
     private bool _isFreeToWander, _isIdling;
@@ -50,24 +55,33 @@ public class Enemy_BasicBehavior : MonoBehaviour
     //INITIALIZATION
     private void Start()
     {
-        _uiManager = GameObject.FindObjectOfType<StealthZombie_UI>();
+        if(_uiManager == null)
+            _uiManager = GameObject.FindObjectOfType<StealthZombie_UI>();
 
-        _playerHealth = GameObject.Find("XR Origin").GetComponent<PlayerHealth>() ;
+        if (_playerHealth == null)
+            _playerHealth = GameObject.Find("XR Origin").GetComponent<PlayerHealth>() ;
         
-        _animator  = GetComponent<Animator>();
-        _animator.ResetTrigger("Die");
+        if(_animator == null)
+        {
+            _animator  = GetComponent<Animator>();
+            _animator.ResetTrigger("Die");
+        }
 
-        _collider= GetComponent<CapsuleCollider>();
+        if(_collider == null)   
+            _collider= GetComponent<CapsuleCollider>();
         
-        _zombieHealth = _maxZombieHealth;
-        _zombieHealthBar.value = _zombieHealth;
+        //Health
+        //_zombieHealth = _maxZombieHealth;
+        //_zombieHealthBar.value = _zombieHealth;      
 
+        //initialize variables
         _speed = Random.Range(1.8f, 2.4f);
         _canStrike = true;
 
         if (_target == null)
             _target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        else Debug.Log("Player is NULL");
+        else 
+            Debug.Log("Player is NULL");
 
     }
 
@@ -75,7 +89,7 @@ public class Enemy_BasicBehavior : MonoBehaviour
     //FLOW
     void Update()
     {
-        if(_isThisEnemyDead == false)
+        if(_isThisZombieDead == false)
         {            
             if(_isADisturbanceInTheForce)
             {
@@ -145,7 +159,7 @@ public class Enemy_BasicBehavior : MonoBehaviour
             }
             
             //Methods
-            EnemyStateMachine();
+            ZombieStateMachine();
             PlayZombieBreathing();
 
             //PlayerInput
@@ -157,7 +171,7 @@ public class Enemy_BasicBehavior : MonoBehaviour
         }
     }
 
-    private void EnemyStateMachine()
+    private void ZombieStateMachine()
     {
             switch(_currentState)
             {
@@ -184,7 +198,7 @@ public class Enemy_BasicBehavior : MonoBehaviour
                         else                        
                             SetAttackAnim();                        
 
-                        _playerHealth.TakeDamage(1);
+                        _playerHealth.Damage(1);
                         if(_uiManager != null)
                             _uiManager.SendPlayerAMessage("YUM! YUM! YUM!");
                         StartCoroutine(AttackCooldown());
@@ -217,6 +231,12 @@ public class Enemy_BasicBehavior : MonoBehaviour
                         break;
             }    
     }
+
+    public void IRepeatThisZombieIsDead()
+    {
+        _isThisZombieDead= true;
+    }
+
 
 
     //ANIMATIONS
@@ -361,20 +381,22 @@ public class Enemy_BasicBehavior : MonoBehaviour
     //HEALTH
     private void TakeDamage(int damageTaken)
     {
+        /*
         _canStrike = false;
         _animator.SetTrigger("Hit");
         _zombieHealth -= damageTaken;
 
         if(_zombieHealth < 1)
         {            
-            _isThisEnemyDead = true;
+            _isThisZombieDead = true;
             _collider.enabled = false;
             _currentState = AIState.Die;            
         }
 
         _zombieHealthBar.value = _zombieHealth;
         StartCoroutine(AttackCooldown());
-    }
+        */
+        }
     private void DieEnemyDie()
     {
         _audioSource.PlayOneShot(_zombieAudio[4]);
@@ -411,8 +433,8 @@ public class Enemy_BasicBehavior : MonoBehaviour
     {
         if (other.tag == "Weapon")
         { 
-            TakeDamage(5);
-            _audioSource.PlayOneShot(_zombieAudio[3]);
+            //TakeDamage(5);
+            //_audioSource.PlayOneShot(_zombieAudio[3]);
         }
         if(other.tag == "Antidote")
         {

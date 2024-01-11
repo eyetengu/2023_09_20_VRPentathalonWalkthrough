@@ -44,7 +44,7 @@ public class NPC_BasicBehavior : MonoBehaviour
     [SerializeField] private Animator _animator;
     private CapsuleCollider _collider;
     private AudioSource _audioSource;
-    [SerializeField] private AudioClip[] _npcClips;
+    [SerializeField] private AudioClip[] _npcAudioClips;
 
 
     //Zombie
@@ -83,20 +83,23 @@ public class NPC_BasicBehavior : MonoBehaviour
 
         if (_hasNPCDied == false)
         {
-            var distanceToZombie = Vector3.Distance(transform.position, _enemyZombieTransform.position);
-            _distance = distanceToZombie;
+            if (_enemyZombieTransform != null)
+            {
+                var distanceToZombie = Vector3.Distance(transform.position, _enemyZombieTransform.position);
+                _distance = distanceToZombie;
 
-            //if (distanceToZombie < 1.5)                                  //HIT- if Zombie is < 5ft away - (3x = infection => Die)
-                //_currentNPCState = NPCState.Hit;
+                if (distanceToZombie < 1.5)                                  //HIT- if Zombie is < 5ft away - (3x = infection => Die)
+                    _currentNPCState = NPCState.Hit;
 
-            //else if (distanceToZombie < 5)                               //FLEE- if Zombie is < ~10ft away                                            
-                //_isFleeing = true;
+                else if (distanceToZombie < 5)                               //FLEE- if Zombie is < ~10ft away                                            
+                    _isFleeing = true;
 
-            if (distanceToZombie < 8 && _isFleeing == false)       //WARD OFF- if Zombie < 17 ft away AND is NOT fleeing already
-                _currentNPCState = NPCState.WardOff;
+                if (distanceToZombie < 8 && _isFleeing == false)       //WARD OFF- if Zombie < 17 ft away AND is NOT fleeing already
+                    _currentNPCState = NPCState.WardOff;
 
-            else if(distanceToZombie > 8 && _isFleeing == false)        //if Zombie is more than 17 ft away- PATROL
-                _currentNPCState = NPCState.Patrol;                    
+                else if(distanceToZombie > 8 && _isFleeing == false)        //if Zombie is more than 17 ft away- PATROL
+                    _currentNPCState = NPCState.Patrol;                    
+            }
         }
         else
         {            
@@ -277,7 +280,7 @@ public class NPC_BasicBehavior : MonoBehaviour
             _animator.SetTrigger("Hit");
 
             _audioSource.Stop();
-            _audioSource.PlayOneShot(_npcClips[0]);
+            _audioSource.PlayOneShot(_npcAudioClips[0]);
 
             StartCoroutine(NPCStunnedTimer());
         }
@@ -292,7 +295,7 @@ public class NPC_BasicBehavior : MonoBehaviour
 
         //play appropriate audio
         _audioSource.Stop();
-        _audioSource.PlayOneShot(_npcClips[0]);
+        _audioSource.PlayOneShot(_npcAudioClips[0]);
 
         Debug.Log("Character Infected");
         
@@ -300,7 +303,7 @@ public class NPC_BasicBehavior : MonoBehaviour
     }
     private void JoinTheUndead()
     {
-        _audioSource.PlayOneShot(_npcClips[0]);
+        _audioSource.PlayOneShot(_npcAudioClips[0]);
         Instantiate(_zombiePrefab, transform.position, transform.rotation);
         Destroy(gameObject, 0.05f);
     }
